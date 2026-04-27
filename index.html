@@ -18,19 +18,21 @@
     }
 
     .top-header {
-      background: #0ea5e9; 
-      color: #ffffff;
+      /* تم تغيير الخلفية هنا لتطابق خلفية الأزرار (القائمة الجانبية) */
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      color: #38bdf8; /* جعلت لون الخط أزرق فاتح ليتناسب مع العنوان "مواقعي" */
       text-align: center;
       padding: 16px 20px;
       font-size: 24px;
       font-weight: bold;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* تم تغميق الظل قليلاً ليناسب اللون الداكن */
       z-index: 20; 
+      border-bottom: 1px solid #334155; /* إضافة خط فاصل خفيف من الأسفل */
     }
 
     .app {
-      display: flex; /* تم التعديل هنا ليدعم التجاوب بشكل أفضل */
+      display: flex; 
       flex-direction: row;
       flex: 1; 
       background: #eef2f6;
@@ -47,7 +49,7 @@
       overflow-y: auto;
       box-shadow: -4px 0 15px rgba(0,0,0,0.1); 
       z-index: 10;
-      width: 250px; /* عرض ثابت للقائمة على الكمبيوتر */
+      width: 250px; 
       flex-shrink: 0;
     }
 
@@ -121,32 +123,31 @@
     /* 📱 أكواد التجاوب مع شاشات الموبايل */
     @media (max-width: 768px) {
       .app {
-        flex-direction: column; /* تحويل العرض ليكون رأسياً (فوق بعض) */
+        flex-direction: column; 
       }
 
       aside {
-        width: 100%; /* القائمة تأخذ عرض الشاشة بالكامل */
+        width: 100%; 
         padding: 12px 10px;
-        flex-direction: row; /* الأزرار تصبح بجانب بعضها أفقياً */
-        overflow-x: auto; /* السماح بالتمرير الأفقي للأزرار */
+        flex-direction: row; 
+        overflow-x: auto; 
         white-space: nowrap;
         gap: 10px;
-        /* إخفاء الظل الجانبي ليتناسب مع الموبايل */
         box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
       }
 
       aside h1 {
-        display: none; /* إخفاء كلمة مواقعي لتوفير مساحة للأزرار */
+        display: none; 
       }
 
       .site-btn {
-        flex: 0 0 auto; /* منع الأزرار من الانضغاط وتصغير حجمها */
+        flex: 0 0 auto; 
         padding: 10px 20px;
         font-size: 14px;
       }
 
       main {
-        padding: 10px; /* تقليل الهوامش الجانبية لإعطاء مساحة أكبر للموقع */
+        padding: 10px; 
       }
     }
   </style>
