@@ -30,8 +30,8 @@
     }
 
     .app {
-      display: grid;
-      grid-template-columns: 1fr 4fr; 
+      display: flex; /* تم التعديل هنا ليدعم التجاوب بشكل أفضل */
+      flex-direction: row;
       flex: 1; 
       background: #eef2f6;
       overflow: hidden; 
@@ -47,6 +47,8 @@
       overflow-y: auto;
       box-shadow: -4px 0 15px rgba(0,0,0,0.1); 
       z-index: 10;
+      width: 250px; /* عرض ثابت للقائمة على الكمبيوتر */
+      flex-shrink: 0;
     }
 
     aside h1 {
@@ -94,6 +96,7 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
+      flex: 1;
       min-width: 0;
     }
 
@@ -113,6 +116,38 @@
       width: 100%;
       border: 0;
       background: #ffffff;
+    }
+
+    /* 📱 أكواد التجاوب مع شاشات الموبايل */
+    @media (max-width: 768px) {
+      .app {
+        flex-direction: column; /* تحويل العرض ليكون رأسياً (فوق بعض) */
+      }
+
+      aside {
+        width: 100%; /* القائمة تأخذ عرض الشاشة بالكامل */
+        padding: 12px 10px;
+        flex-direction: row; /* الأزرار تصبح بجانب بعضها أفقياً */
+        overflow-x: auto; /* السماح بالتمرير الأفقي للأزرار */
+        white-space: nowrap;
+        gap: 10px;
+        /* إخفاء الظل الجانبي ليتناسب مع الموبايل */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+      }
+
+      aside h1 {
+        display: none; /* إخفاء كلمة مواقعي لتوفير مساحة للأزرار */
+      }
+
+      .site-btn {
+        flex: 0 0 auto; /* منع الأزرار من الانضغاط وتصغير حجمها */
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      main {
+        padding: 10px; /* تقليل الهوامش الجانبية لإعطاء مساحة أكبر للموقع */
+      }
     }
   </style>
 </head>
